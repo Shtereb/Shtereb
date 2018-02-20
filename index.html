@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+        <title>Log In</title>
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+<html>    
+    <body>
+	<div class="frozbox">
+		<div id="logo">
+		<img src="images/d.png" alt="logo"/>
+		</div> 
+        <div class="box">
+				<div id="loginbox">
+					<form id="loginform">
+						<div class="inputBox">
+							<input type="text" name="" required="">
+							<label>username</label>
+						</div>
+						<div class="inputBox">
+							<input type="password" name="" required="">
+							<label>password</label>
+						</div>
+							<input  class="button" type="submit" name="" value="Login">
+							
+							
+							<a id="reg" class="linkbtn" href="#"  >Need an account?</a>
+							
+					</form>
+				</div>
+				<div id="registerbox">
+					<form >
+						<div class="inputBox">
+							<input type="text" name="" required="">
+							<label>username</label>
+						</div>
+						<div class="inputBox">
+							<input type="password" name="" required="">
+							<label>password</label>
+						</div>
+							<div class="inputBox">
+							<input type="text" name="" required="">
+							<label>e-mail</label>
+						
+						</div>
+							<input id="regbtn" class="button" type="submit" name="" value="Register">
+							<a href="#" class="linkbtn" id="back"  >Already have</a>
+							
+
+					</form>
+				
+				</div>
+				<script src="https://code.jquery.com/jquery-3.3.1.min.js"> </script>
+				<script>   
+				$("#back").click(function(){$("#registerbox").fadeOut(500,function(){$("#loginbox").fadeIn(500);});});
+				$("#reg").click(function(){$("#loginbox").fadeOut(500,function(){$("#registerbox").fadeIn(500);});});
+				
+			
+				
+			
+				
+				</script>
+				
+    </body>
+</html>
