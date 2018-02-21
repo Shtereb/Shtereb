@@ -2,6 +2,13 @@
 
 @import url(reset.css);
 body {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+body {
   margin:0px;
   padding:0px;
   color: #2b334a;
@@ -508,4 +515,8 @@ input.toggle:checked + label:after {
 #avatar{float: right;
 transition: all .5s;}
 #avatar:hover{transform: translateX(-5px);}
-
+#scrollup{position:fixed;
+display:none;
+top: 50px;
+left:50px;
+}

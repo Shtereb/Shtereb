@@ -78,6 +78,7 @@
 	<div id="top-menu">
 		<div id="inner-menu">
 		<ul>
+					
 					<li><a href="javascript:void(0); "id="sall">Select all</a></li>
 					<li><a href="javascript:void(0);" id="unsall">Unselect all</a></li>
 					<li><a href="javascript:void(0);" id="share">Share</a></li>
@@ -95,7 +96,9 @@
 	</div>
 	
 	<div id="wrapper">
+	
 	<div id="content">
+	<a href="javascript:void(0); "id="scrollup"><img src="images/scrollup.png" alt="scrollup"></a>
 	<div class="clear"></div>
 	
 	</div>
@@ -164,6 +167,7 @@
 	$('.btn').addClass('shrink');
 		$('input.toggle:checked').addClass('shrink');
 		$('input.toggle').addClass('shrink');
+		$('#scrollup').show();
 	
 		
 		
@@ -178,7 +182,7 @@
 		$('.btn').removeClass('shrink'); 
 		  $('input.toggle:checked').removeClass('shrink');
 		   $('input.toggle').removeClass('shrink');
-		
+		$('#scrollup').hide();
 		 
     }
   });
@@ -198,6 +202,11 @@ $('#sall').click(function(){
 $('#delete').click(function(){
 
      $('.file.checked').remove();
+   
+});
+$('#scrollup').click(function(){
+
+     $("html, body").animate({ scrollTop: 0 }, "slow");
    
 });
 
@@ -227,12 +236,28 @@ $(".file.moving").after($(".file.moving").prev());
 	$(".file.moving").before($(".file.moving").next());	
         break;
 
-        
+        case 65:
+	if(e.ctrlKey){
+		$(".file").toggleClass("checked");
+}
+break;
+
+  case 46:
+	
+	
+$("#delete").trigger("click");
+
+
+break;
+	
 
         default: return; 
     }
     e.preventDefault(); 
 });
+
+
+
 
 
 $(document).on("click", ".file", function(evt) { if ((evt.altKey)&&($(evt.target).parent().hasClass('moving')===true)){
