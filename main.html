@@ -206,7 +206,7 @@ $('#delete').click(function(){
   e.stopPropagation()
 })
 });
-$(document).on("click", ".file img", function(evt) { if ((evt.ctrlKey)&&($(evt.target).parent().hasClass('checked')===true)){
+$(document).on("click", ".file", function(evt) { if ((evt.ctrlKey)&&($(evt.target).parent().hasClass('checked')===true)){
     $(evt.target).parent().removeClass('checked');
 	}else if ((evt.ctrlKey)&&($(evt.target).parent().hasClass('checked')===false)){
     $(evt.target).parent().addClass('checked');
@@ -235,7 +235,7 @@ $(".file.moving").after($(".file.moving").prev());
 });
 
 
-$(document).on("click", ".file img", function(evt) { if ((evt.altKey)&&($(evt.target).parent().hasClass('moving')===true)){
+$(document).on("click", ".file", function(evt) { if ((evt.altKey)&&($(evt.target).parent().hasClass('moving')===true)){
 	
     $(evt.target).parent().removeClass('moving');
 	}else if ((evt.altKey)&&($(evt.target).parent().hasClass('moving')===false)){
