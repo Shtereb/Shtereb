@@ -273,8 +273,14 @@ bottom: 0;
 .file{float:left;
 margin: 45px;
  box-shadow: 0 .5em 1em rgba(0,0,0,.3);
+ width: 180px;
+ border: 2px solid #1d1d1d;
+ 
 	
-}
+	}
+	
+	.file.checked{background:blue;}
+	.file.moving{background:yellow;}
 
 .text{
 	padding: 35px;
