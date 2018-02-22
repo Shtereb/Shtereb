@@ -151,11 +151,13 @@
 		</div>
 </div>
   
-  
+ <div style="position: absolute; display:none;height:200px;width:200px;border:3px solid green;" id="popup">Hi</div>
+
   
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>$(document).ready(function() {
+ $("html, body").animate({ scrollTop: 0 }, "slow");
 	$(window).scroll(function() {
   	if($(document).scrollTop() > 75) {
     	$('#top-menu').addClass('shrink');
@@ -186,7 +188,8 @@
 		 
     }
   });
-$('#share').click(function(){ $('#content').append('<div class="file" ><img src="images/fileimage.png"></img></div>'); 
+  //adding new div
+$('#share').click(function(){ $('#content').append('<div class="file" ><img src="images/fileimage.png"></img><div id="myDropdown" class="dropdown-content"><a href="#">Download</a></div></div>'); 
   });
 
 $('#unsall').click(function(){
@@ -222,44 +225,19 @@ $(document).on("click", ".file", function(evt) { if ((evt.ctrlKey)&&($(evt.targe
 	}});
 
 
+
+
+
 $(document).keydown(function(e) {
-    switch(e.which) {
-        case 37:
+   if(e.which===46&&e.ctrlKey) {$("#delete").trigger("click");}});
+$(document).keydown(function(e) {
+   if(e.which===37&&e.ctrlKey) {$(".file.moving").after($(".file.moving").prev());	}});
+$(document).keydown(function(e) {
+   if(e.which===39&&e.ctrlKey) {$(".file.moving").before($(".file.moving").next());	}});   
+$(document).keydown(function(e) {
+   if(e.which===65&&e.ctrlKey) {$(".file").toggleClass("checked");}});
 
-$(".file.moving").after($(".file.moving").prev());		
-
-        break;
-
-       
-
-        case 39:
-	$(".file.moving").before($(".file.moving").next());	
-        break;
-
-        case 65:
-	if(e.ctrlKey){
-		$(".file").toggleClass("checked");
-}
-break;
-
-  case 46:
-	
-	
-$("#delete").trigger("click");
-
-
-break;
-	
-
-        default: return; 
-    }
-    e.preventDefault(); 
-});
-
-
-
-
-
+$()
 $(document).on("click", ".file", function(evt) { if ((evt.altKey)&&($(evt.target).parent().hasClass('moving')===true)){
 	
     $(evt.target).parent().removeClass('moving');
@@ -267,7 +245,16 @@ $(document).on("click", ".file", function(evt) { if ((evt.altKey)&&($(evt.target
 	 $('.file').removeClass('moving');
     $(evt.target).parent().addClass('moving');
 	}});
+$(document).on("click", ".file", function(evt) {
+	if($(evt.target).parent().find(".dropdown-content").hasClass("show")===false ){
+	$(".file .dropdown-content").removeClass("show");
+	$(evt.target).parent().find(".dropdown-content").addClass("show");}else{$(".file .dropdown-content").removeClass("show");
+}
+    });
 
+		$(window).scroll(function() {$(".file .dropdown-content").removeClass("show");});
+
+   
 
 </script>
 </html>
